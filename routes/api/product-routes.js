@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
           category_id
         }
       );
-      if (!tagIds.length) {
+      if (!tagIds || !Array.isArray(tagIds)) {
         res.status(200).json(productData);
       return;
     }
@@ -109,7 +109,7 @@ router.put('/:id', async (req, res) => {
       return;
     }
 
-if (!tagIds.length) {
+    if (!tagIds || !Array.isArray(tagIds)) {
   res.status(200).json(productData);
   return;
 }
